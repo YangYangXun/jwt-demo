@@ -11,16 +11,15 @@ use Illuminate\Http\Request;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::group([
 
-    'prefix' => 'auth'
+    'prefix' => 'auth',
 
 ], function ($router) {
 
@@ -31,16 +30,15 @@ Route::group([
 
 });
 
-
 Route::group([
 
-    'prefix' => 'admin'
+    'prefix' => 'admin',
 
 ], function ($router) {
 
-    Route::post('login', 'AuthController@loginAdmin');
-    Route::post('logout', 'AuthController@logoutAdmin');
-    // Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@meAdmin');
+    Route::post('login', 'AdminController@loginAdmin');
+    Route::post('logout', 'AdminController@logoutAdmin');
+    // Route::post('refresh', 'AdminController@refresh');
+    Route::post('me', 'AdminController@meAdmin');
 
 });
