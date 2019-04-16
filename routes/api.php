@@ -39,6 +39,6 @@ Route::group([
     Route::post('login', 'AdminController@loginAdmin');
     Route::post('logout', 'AdminController@logoutAdmin');
     // Route::post('refresh', 'AdminController@refresh');
-    Route::post('me', 'AdminController@meAdmin');
+    Route::post('me', 'AdminController@meAdmin')->middleware('admin');
 
 });
