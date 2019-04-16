@@ -16,7 +16,7 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guard('admins')->user()) {
+        if (!Auth::guard('admins')->check()) {
             return response()->json(['error' => 'Not Admin'], 401);
         }
         return $next($request);
